@@ -225,8 +225,8 @@ catalogs:
       specifier: ^9.0.0
       version: 9.0.0
     linkify-it:
-      specifier: ^5.0.1
-      version: 5.0.2
+      specifier: ^6.1.0
+      version: 6.1.0
     mdurl:
       specifier: ^2.1.0
       version: 2.1.0
@@ -256,9 +256,6 @@ catalogs:
     '@types/js-yaml':
       specifier: ^4.0.9
       version: 4.0.9
-    '@types/linkify-it':
-      specifier: ^5.0.0
-      version: 5.0.0
     '@types/mdurl':
       specifier: ^2.0.0
       version: 2.0.0
@@ -355,9 +352,6 @@ importers:
 
   packages/markdown-exit:
     dependencies:
-      '@types/linkify-it':
-        specifier: catalog:types
-        version: 5.0.0
       '@types/mdurl':
         specifier: catalog:types
         version: 2.0.0
@@ -366,7 +360,7 @@ importers:
         version: 9.0.0
       linkify-it:
         specifier: catalog:integrations
-        version: 5.0.2
+        version: 6.1.0
       mdurl:
         specifier: catalog:integrations
         version: 2.1.0

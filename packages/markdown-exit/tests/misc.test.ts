@@ -312,6 +312,43 @@ describe('misc', () => {
   })
 })
 
+describe('linkify', () => {
+  it('should match links without protocol when enabled (and auto-add protocol)', () => {
+    const md = MarkdownExit({ linkify: true })
+
+    md.linkify.set({ fuzzyLink: true })
+
+    assert.strictEqual(
+      md.render('www.example.org'),
+      '<p><a href="http://www.example.org">www.example.org</a></p>\n',
+    )
+  })
+
+  it('should normalize IDN in fuzzy links', () => {
+    const md = MarkdownExit({ linkify: true })
+
+    md.linkify.set({ fuzzyLink: true })
+
+    assert.strictEqual(
+      md.render('test xn--n3h.net foo'),
+      '<p>test <a href="http://xn--n3h.net">☃.net</a> foo</p>\n',
+    )
+  })
+
+  it('regression test, invalid link', () => {
+    const md = MarkdownExit({ linkify: true })
+
+    md.linkify.set({ fuzzyLink: true })
+
+    // An invalid match could leave the inline parser at the same position
+    // and cause an infinite loop.
+    assert.strictEqual(
+      md.render('i.org[x[x][xx: htt://a.b://a'),
+      '<p><a href="http://i.org">i.org</a>[x[x][xx: htt://a.b://a</p>\n',
+    )
+  })
+})
+
 describe('url normalization', () => {
   it('should be overridable', () => {
     const md = MarkdownExit({ linkify: true })

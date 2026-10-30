@@ -1,6 +1,6 @@
 import type { Token } from '../token'
 import type { MarkdownExitEnv } from '../types/shared'
-import LinkifyIt from 'linkify-it'
+import { LinkifyIt } from 'linkify-it'
 import ParserBlock from './block/parser_block'
 import ParserCore from './core/parser_core'
 import { helpers } from './helpers'
