@@ -1,4 +1,5 @@
 catalogMode: prefer
+ignoreWorkspaceRootCheck: true
 shellEmulator: true
 trustPolicy: no-downgrade
 
@@ -8,11 +9,11 @@ packages:
 
 catalog:
   '@antfu/eslint-config': ^6.7.3
-  bumpp: ^10.3.2
-  eslint: ^9.39.2
+  bumpp: ^10.4.1
+  eslint: ^9.39.5
   tsdown: ^0.18.4
   typescript: ^5.9.3
-  vite: ^7.3.0
+  vite: ^7.3.7
 
 catalogs:
   bench:
@@ -35,16 +36,16 @@ catalogs:
     punycode.js: ^2.3.1
     uc.micro: ^2.1.0
   tests:
-    '@codspeed/vitest-plugin': ^5.0.1
+    '@codspeed/vitest-plugin': ^5.7.1
     js-yaml: ^4.1.1
-    shiki: ^3.20.0
+    shiki: ^3.23.0
     tinyglobby: ^0.2.15
-    vitest: ^3.2.4
+    vitest: ^3.2.7
   types:
     '@types/js-yaml': ^4.0.9
     '@types/linkify-it': ^5.0.0
     '@types/mdurl': ^2.0.0
-    '@types/node': ^24.10.4
+    '@types/node': ^24.19.2
 
-onlyBuiltDependencies:
-  - esbuild
+allowBuilds:
+  esbuild: true
