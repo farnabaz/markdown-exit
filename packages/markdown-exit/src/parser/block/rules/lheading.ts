@@ -39,7 +39,9 @@ export default function lheading(state: StateBlock, startLine: number, endLine: 
           pos = state.skipSpaces(pos)
 
           if (pos >= max) {
-            level = (marker === 0x3D/* = */ ? 1 : 2)
+            level = (marker === 0x3D/* = */
+              ? 1
+              : 2)
             break
           }
         }

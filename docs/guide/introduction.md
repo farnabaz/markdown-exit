@@ -4,7 +4,7 @@
 
 It is a TypeScript rewrite of [markdown-it](https://github.com/markdown-it/markdown-it), designed as a drop-in replacement with thoughtful enhancements.
 
-### Differences from markdown-it
+## Differences from markdown-it
 
 - TypeScript-first design
 - Supports [async rendering](/guide/rendering.html#async-rendering)
@@ -13,7 +13,7 @@ It is a TypeScript rewrite of [markdown-it](https://github.com/markdown-it/markd
 - Better performance (see [benchmarks](https://codspeed.io/serkodev/markdown-exit/benchmarks))
 - Bug fixes and [additional features](https://github.com/serkodev/markdown-exit/issues?q=is:issue%20label:features)
 
-#### Why a separate codebase from markdown-it?
+### Why a separate codebase from markdown-it?
 
 TypeScript offers better type safety and a superior development experience. It also makes the code easier to read and maintain.
 

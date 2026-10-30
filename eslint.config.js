@@ -14,7 +14,11 @@ export default antfu(
       'no-console': 'warn',
       'no-alert': 'warn',
       'curly': 'off',
-      'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      'style/brace-style': [
+        'error',
+        '1tbs',
+        { allowSingleLine: true },
+      ],
       'unused-imports/no-unused-vars': 'warn',
       'style/operator-linebreak': 'off',
     },

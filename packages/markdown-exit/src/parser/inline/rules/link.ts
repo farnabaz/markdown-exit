@@ -131,7 +131,9 @@ export default function link(state: StateInline, silent: boolean) {
     state.posMax = labelEnd
 
     const token_o = state.push('link_open', 'a', 1)
-    const attrs: HTMLAttribute[] = [['href', href]]
+    const attrs: HTMLAttribute[] = [
+      ['href', href],
+    ]
     token_o.attrs = attrs
     if (title) {
       attrs.push(['title', title])

@@ -77,7 +77,9 @@ default_rules.code_block = function (tokens, idx, options, env, slf) {
 
 default_rules.fence = function (tokens, idx, options, env, slf): string | Promise<string> {
   const token = tokens[idx]
-  const info = token.info ? unescapeAll(token.info).trim() : ''
+  const info = token.info
+    ? unescapeAll(token.info).trim()
+    : ''
   let langName = ''
   let langAttrs = ''
 
@@ -88,7 +90,7 @@ default_rules.fence = function (tokens, idx, options, env, slf): string | Promis
   }
 
   function finalize(highlighted: string): string {
-    if (highlighted.indexOf('<pre') === 0) {
+    if (highlighted.startsWith('<pre')) {
       return `${highlighted}\n`
     }
 
@@ -97,7 +99,9 @@ default_rules.fence = function (tokens, idx, options, env, slf): string | Promis
     // now we prefer to keep things local.
     if (info) {
       const i = token.attrIndex('class')
-      const tmpAttrs: HTMLAttribute[] = token.attrs ? token.attrs.slice() : []
+      const tmpAttrs: HTMLAttribute[] = token.attrs
+        ? token.attrs.slice()
+        : []
 
       if (i < 0) {
         tmpAttrs.push(['class', options.langPrefix + langName])
@@ -153,7 +157,9 @@ default_rules.hardbreak = function (tokens, idx, options /* , env */) {
   return options.xhtmlOut ? '<br />\n' : '<br>\n'
 }
 default_rules.softbreak = function (tokens, idx, options /* , env */) {
-  return options.breaks ? (options.xhtmlOut ? '<br />\n' : '<br>\n') : '\n'
+  return options.breaks
+    ? (options.xhtmlOut ? '<br />\n' : '<br>\n')
+    : '\n'
 }
 
 default_rules.text = function (tokens, idx /* , options, env */) {
@@ -247,7 +253,9 @@ export class Renderer {
     }
 
     // Add token name, e.g. `<img`
-    result += (token.nesting === -1 ? '</' : '<') + token.tag
+    result += (token.nesting === -1
+      ? '</'
+      : '<') + token.tag
 
     // Encode attributes, e.g. `<img src="foo"`
     result += this.renderAttrs(token)

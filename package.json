@@ -22,6 +22,7 @@
     "@antfu/eslint-config": "catalog:",
     "@codspeed/vitest-plugin": "catalog:tests",
     "@types/node": "catalog:types",
+    "@typescript/native": "catalog:",
     "bumpp": "catalog:",
     "eslint": "catalog:",
     "shiki": "catalog:tests",

@@ -34,7 +34,9 @@ export function* generate(path: string | string[], options?: GenerateOptions) {
 
     yield* _generate(data, {
       ...options,
-      ...!options?.defaultDesc && { defaultDesc: basename(p) },
+      ...!options?.defaultDesc && {
+        defaultDesc: basename(p),
+      },
     })
   }
 }
@@ -49,13 +51,17 @@ export function* generateFromContent(content: string, options?: GenerateOptions)
 }
 
 function* _generate(data: LoadResult, options?: GenerateOptions) {
-  const desc = typeof data.meta?.desc === 'string' ? data.meta.desc : (options?.defaultDesc ?? '')
+  const desc = typeof data.meta?.desc === 'string'
+    ? data.meta.desc
+    : (options?.defaultDesc ?? '')
   const skip = !!data.meta?.skip
   for (const fixture of data.fixtures) {
     yield {
       skip,
       desc,
-      header: fixture.header && options?.header ? fixture.header : `line ${fixture.first.range[0] - 1}`,
+      header: fixture.header && options?.header
+        ? fixture.header
+        : `line ${fixture.first.range[0] - 1}`,
       first: fixture.first.text,
       second: fixture.second.text,
     }

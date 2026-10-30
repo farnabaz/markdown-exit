@@ -23,10 +23,14 @@ export default function entity(state: StateInline, silent: boolean) {
     const match = state.src.slice(pos).match(DIGITAL_RE)
     if (match) {
       if (!silent) {
-        const code = match[1][0].toLowerCase() === 'x' ? Number.parseInt(match[1].slice(1), 16) : Number.parseInt(match[1], 10)
+        const code = match[1][0].toLowerCase() === 'x'
+          ? Number.parseInt(match[1].slice(1), 16)
+          : Number.parseInt(match[1], 10)
 
         const token = state.push('text_special', '', 0)
-        token.content = isValidEntityCode(code) ? fromCodePoint(code) : fromCodePoint(0xFFFD)
+        token.content = isValidEntityCode(code)
+          ? fromCodePoint(code)
+          : fromCodePoint(0xFFFD)
         token.markup = match[0]
         token.info = 'entity'
       }

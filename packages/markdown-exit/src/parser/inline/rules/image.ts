@@ -134,7 +134,10 @@ export default function image(state: StateInline, silent: boolean) {
     )
 
     const token = state.push('image', 'img', 0)
-    const attrs: HTMLAttribute[] = [['src', href], ['alt', '']]
+    const attrs: HTMLAttribute[] = [
+      ['src', href],
+      ['alt', ''],
+    ]
     token.attrs = attrs
     token.children = tokens
     token.content = content

@@ -2,7 +2,7 @@
 
 **markdown-exit** compatible with **markdown-it** render API and supports [async rendering](#async-rendering) out of the box.
 
-### Basic Usage
+## Basic Usage
 
 ```ts
 import { createMarkdownExit } from 'markdown-exit'
@@ -11,7 +11,7 @@ const md = createMarkdownExit()
 const html = md.render('# Hello World')
 ```
 
-### Inline Rendering
+## Inline Rendering
 
 Render inline markdown content without paragraph wrapping.
 
@@ -19,7 +19,7 @@ Render inline markdown content without paragraph wrapping.
 const html = md.renderInline('**markdown-exit** is awesome!')
 ```
 
-### Syntax Highlighting
+## Syntax Highlighting
 
 You can provide a custom syntax highlighter function via the [`highlight`](/reference/api/Interface.MarkdownExitOptions.html#highlight) option.
 

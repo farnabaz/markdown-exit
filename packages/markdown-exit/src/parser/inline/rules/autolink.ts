@@ -38,7 +38,9 @@ export default function autolink(state: StateInline, silent: boolean) {
 
     if (!silent) {
       const token_o = state.push('link_open', 'a', 1)
-      token_o.attrs = [['href', fullUrl]]
+      token_o.attrs = [
+        ['href', fullUrl],
+      ]
       token_o.markup = 'autolink'
       token_o.info = 'auto'
 
@@ -61,7 +63,9 @@ export default function autolink(state: StateInline, silent: boolean) {
 
     if (!silent) {
       const token_o = state.push('link_open', 'a', 1)
-      token_o.attrs = [['href', fullUrl]]
+      token_o.attrs = [
+        ['href', fullUrl],
+      ]
       token_o.markup = 'autolink'
       token_o.info = 'auto'
 

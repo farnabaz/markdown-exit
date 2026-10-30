@@ -101,8 +101,12 @@ describe('ruler', () => {
     let rules
 
     ruler.push('test', () => {})
-    ruler.push('test2', () => {}, { alt: ['alt1'] })
-    ruler.push('test2', () => {}, { alt: ['alt1', 'alt2'] })
+    ruler.push('test2', () => {}, {
+      alt: ['alt1'],
+    })
+    ruler.push('test2', () => {}, {
+      alt: ['alt1', 'alt2'],
+    })
 
     rules = ruler.getRules('')
     assert.strictEqual(rules.length, 3)

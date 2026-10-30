@@ -108,7 +108,9 @@ export default function linkify(state: StateCore) {
           }
 
           const token_o = new state.Token('link_open', 'a', 1)
-          token_o.attrs = [['href', fullUrl]]
+          token_o.attrs = [
+            ['href', fullUrl],
+          ]
           token_o.level = level++
           token_o.markup = 'linkify'
           token_o.info = 'auto'

@@ -13,7 +13,9 @@ describe('markdown-exit', async () => {
   const fixtures = import.meta.glob<string>('./fixtures/markdown-exit/*', { query: '?raw', import: 'default' })
 
   for (const [path, fixture] of Object.entries(fixtures)) {
-    for (const { skip, desc, header, first, second } of generateFromContent(await fixture(), { defaultDesc: basename(path) })) {
+    for (const { skip, desc, header, first, second } of generateFromContent(await fixture(), {
+      defaultDesc: basename(path),
+    })) {
       it.skipIf(skip)(`${desc}: ${header}`, () => {
         assert.strictEqual(md.render(first), second)
       })
@@ -31,7 +33,9 @@ describe('markdown-it', async () => {
   const fixtures = import.meta.glob<string>('./fixtures/markdown-it/*', { query: '?raw', import: 'default' })
 
   for (const [path, fixture] of Object.entries(fixtures)) {
-    for (const { skip, desc, header, first, second } of generateFromContent(await fixture(), { defaultDesc: basename(path) })) {
+    for (const { skip, desc, header, first, second } of generateFromContent(await fixture(), {
+      defaultDesc: basename(path),
+    })) {
       it.skipIf(skip)(`${desc}: ${header}`, () => {
         assert.strictEqual(md.render(first), second)
       })
@@ -47,7 +51,9 @@ describe('commonmark', async () => {
   const md = MarkdownExit('commonmark')
   const fixtures = import.meta.glob<string>('./fixtures/commonmark/*', { query: '?raw', import: 'default' })
   for (const [path, fixture] of Object.entries(fixtures)) {
-    for (const { skip, desc, header, first, second } of generateFromContent(await fixture(), { defaultDesc: basename(path) })) {
+    for (const { skip, desc, header, first, second } of generateFromContent(await fixture(), {
+      defaultDesc: basename(path),
+    })) {
       it.skipIf(skip)(`${desc}: ${header}`, () => {
         assert.strictEqual(md.render(first), normalize(second))
       })

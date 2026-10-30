@@ -28,15 +28,58 @@ export type RuleBlock = (state: StateBlock, startLine: number, endLine: number, 
 const _rules = [
   // First 2 params - rule name & source. Secondary array - list of rules,
   // which can be terminated by this one.
-  ['table', r_table, ['paragraph', 'reference']],
+  [
+    'table',
+    r_table,
+    ['paragraph', 'reference'],
+  ],
   ['code', r_code],
-  ['fence', r_fence, ['paragraph', 'reference', 'blockquote', 'list']],
-  ['blockquote', r_blockquote, ['paragraph', 'reference', 'blockquote', 'list']],
-  ['hr', r_hr, ['paragraph', 'reference', 'blockquote', 'list']],
-  ['list', r_list, ['paragraph', 'reference', 'blockquote']],
+  [
+    'fence',
+    r_fence,
+    [
+      'paragraph',
+      'reference',
+      'blockquote',
+      'list',
+    ],
+  ],
+  [
+    'blockquote',
+    r_blockquote,
+    [
+      'paragraph',
+      'reference',
+      'blockquote',
+      'list',
+    ],
+  ],
+  [
+    'hr',
+    r_hr,
+    [
+      'paragraph',
+      'reference',
+      'blockquote',
+      'list',
+    ],
+  ],
+  [
+    'list',
+    r_list,
+    ['paragraph', 'reference', 'blockquote'],
+  ],
   ['reference', r_reference],
-  ['html_block', r_html_block, ['paragraph', 'reference', 'blockquote']],
-  ['heading', r_heading, ['paragraph', 'reference', 'blockquote']],
+  [
+    'html_block',
+    r_html_block,
+    ['paragraph', 'reference', 'blockquote'],
+  ],
+  [
+    'heading',
+    r_heading,
+    ['paragraph', 'reference', 'blockquote'],
+  ],
   ['lheading', r_lheading],
   ['paragraph', r_paragraph],
 ] as const satisfies [string, RuleBlock, string[]?][]
@@ -53,7 +96,9 @@ export default class ParserBlock<T extends Parser = Parser> {
     this.ruler = new Ruler()
 
     for (let i = 0; i < _rules.length; i++) {
-      this.ruler.push(_rules[i][0], _rules[i][1], { alt: (_rules[i][2] || []).slice() })
+      this.ruler.push(_rules[i][0], _rules[i][1], {
+        alt: (_rules[i][2] || []).slice(),
+      })
     }
   }
 

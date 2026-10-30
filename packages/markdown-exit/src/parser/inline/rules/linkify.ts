@@ -58,7 +58,9 @@ export default function linkify(state: StateInline, silent: boolean) {
     state.pending = state.pending.slice(0, -proto.length)
 
     const token_o = state.push('link_open', 'a', 1)
-    token_o.attrs = [['href', fullUrl]]
+    token_o.attrs = [
+      ['href', fullUrl],
+    ]
     token_o.markup = 'linkify'
     token_o.info = 'auto'
 

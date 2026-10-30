@@ -120,7 +120,9 @@ export default function table(state: StateBlock, startLine: number, endLine: num
     if (!/^:?-+:?$/.test(t))
       return false
     if (t.charCodeAt(t.length - 1) === 0x3A/* : */) {
-      aligns.push(t.charCodeAt(0) === 0x3A/* : */ ? 'center' : 'right')
+      aligns.push(t.charCodeAt(0) === 0x3A/* : */
+        ? 'center'
+        : 'right')
     } else if (t.charCodeAt(0) === 0x3A/* : */) {
       aligns.push('left')
     } else {
@@ -168,7 +170,9 @@ export default function table(state: StateBlock, startLine: number, endLine: num
   for (let i = 0; i < columns.length; i++) {
     const token_ho = state.push('th_open', 'th', 1)
     if (aligns[i]) {
-      token_ho.attrs = [['style', `text-align:${aligns[i]}`]]
+      token_ho.attrs = [
+        ['style', `text-align:${aligns[i]}`],
+      ]
     }
 
     const token_il = state.push('inline', '', 0)
@@ -226,11 +230,15 @@ export default function table(state: StateBlock, startLine: number, endLine: num
     for (let i = 0; i < columnCount; i++) {
       const token_tdo = state.push('td_open', 'td', 1)
       if (aligns[i]) {
-        token_tdo.attrs = [['style', `text-align:${aligns[i]}`]]
+        token_tdo.attrs = [
+          ['style', `text-align:${aligns[i]}`],
+        ]
       }
 
       const token_il = state.push('inline', '', 0)
-      token_il.content = columns[i] ? columns[i].trim() : ''
+      token_il.content = columns[i]
+        ? columns[i].trim()
+        : ''
       token_il.children = []
 
       state.push('td_close', 'td', -1)

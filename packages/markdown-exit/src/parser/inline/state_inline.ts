@@ -173,7 +173,9 @@ export default class StateInline<T extends Parser = Parser> {
     const count = pos - start
 
     // treat end of the line as a whitespace
-    let nextChar = pos < max ? this.src.charCodeAt(pos) : 0x20
+    let nextChar = pos < max
+      ? this.src.charCodeAt(pos)
+      : 0x20
     if ((nextChar & 0xFC00) === 0xD800) {
     // high surrogate => add low one, replace broken pair with U+FFFD
       const lowSurr = this.src.charCodeAt(pos + 1)

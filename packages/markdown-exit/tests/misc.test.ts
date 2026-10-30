@@ -112,7 +112,14 @@ describe('aPI', () => {
     }
 
     // Disable 2 rule in each chain & compare result
-    md.disable(['block', 'inline', 'code', 'fence', 'emphasis', 'entity'])
+    md.disable([
+      'block',
+      'inline',
+      'code',
+      'fence',
+      'emphasis',
+      'entity',
+    ])
 
     const now = {
       core: md.core.ruler.getRules('').length + 2,
@@ -123,7 +130,14 @@ describe('aPI', () => {
     assert.deepEqual(was, now)
 
     // Enable the same rules back
-    md.enable(['block', 'inline', 'code', 'fence', 'emphasis', 'entity'])
+    md.enable([
+      'block',
+      'inline',
+      'code',
+      'fence',
+      'emphasis',
+      'entity',
+    ])
 
     const back = {
       core: md.core.ruler.getRules('').length,
@@ -204,7 +218,9 @@ describe('plugins', () => {
       if (state.src.charCodeAt(pos) !== 0x40/* @ */)
         return false
       return true
-    }, { alt: ['paragraph'] })
+    }, {
+      alt: ['paragraph'],
+    })
 
     assert.throws(() => md.render('foo\n@bar\nbaz'), /block rule didn't increment state.line/)
     assert.throws(() => md.render('foo\n\n@bar\n\nbaz'), /block rule didn't increment state.line/)

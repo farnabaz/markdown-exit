@@ -11,7 +11,7 @@ After [installing](/guide/quick-start.html#installation) **markdown-exit**, simp
 + import MarkdownExit from 'markdown-exit'
 ```
 
-#### Named Import
+### Named Import
 
 markdown-it uses [default imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#default_import) by default. While **markdown-exit** is compatible with this approach, it’s recommended to use [named import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#named_import) instead, as they are more tree-shaking friendly.
 

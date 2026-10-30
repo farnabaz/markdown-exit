@@ -30,7 +30,9 @@ export function parse(input: string, { sep: _sep = ['.'] }: ParseOptions = {}): 
     fixtures: [],
   }
 
-  const sep: string[] = Array.isArray(_sep) ? _sep : _sep.split('')
+  const sep: string[] = Array.isArray(_sep)
+    ? _sep
+    : _sep.split('')
 
   // Try to parse meta
   if (/^-{3,}$/.test(lines[0] || '')) {
@@ -117,9 +119,13 @@ export function parse(input: string, { sep: _sep = ['.'] }: ParseOptions = {}): 
     result.fixtures.push(fixture)
   }
 
-  return (result.meta || result.fixtures.length) ? result : null
+  return (result.meta || result.fixtures.length)
+    ? result
+    : null
 }
 
 function fixLF(str: string) {
-  return str.length ? `${str}\n` : str
+  return str.length
+    ? `${str}\n`
+    : str
 }

@@ -111,7 +111,9 @@ export default class StateBlock<T extends Parser = Parser> {
 
     for (let start = 0; start < len;) {
       const lineEnd = s.indexOf('\n', start)
-      const end = lineEnd === -1 ? len : lineEnd
+      const end = lineEnd === -1
+        ? len
+        : lineEnd
       let indent = 0
       let offset = 0
       let pos = start
@@ -120,7 +122,9 @@ export default class StateBlock<T extends Parser = Parser> {
         const ch = s.charCodeAt(pos)
         if (isSpace(ch)) {
           indent++
-          offset += (ch === 0x09) ? (4 - offset % 4) : 1
+          offset += (ch === 0x09)
+            ? (4 - offset % 4)
+            : 1
           pos++
           continue
         }

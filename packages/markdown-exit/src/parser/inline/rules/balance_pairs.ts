@@ -44,8 +44,8 @@ function processDelimiters(delimiters: Delimiter[]) {
     // for each marker, each delimiter length modulo 3,
     // and for whether this closer can be an opener;
     // https://github.com/commonmark/cmark/commit/34250e12ccebdc6372b8b49c44fab57c72443460
-    /* eslint-disable-next-line no-prototype-builtins */
-    if (!openersBottom.hasOwnProperty(closer.marker)) {
+
+    if (!Object.hasOwn(openersBottom, closer.marker)) {
       openersBottom[closer.marker] = [-1, -1, -1, -1, -1, -1]
     }
 
